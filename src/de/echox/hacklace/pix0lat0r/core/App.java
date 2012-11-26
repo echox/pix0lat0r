@@ -22,18 +22,18 @@ public class App {
 	}
 	
 	public Matrix nextPage() {
-		if(getCurrentPage() >= pages.size()) {
+		if(currentIdx() >= pages.size()) {
 			pages.add(new MatrixImpl(5,7));
-			setCurrentPage(getCurrentPage() + 1);
+			setCurrentPage(currentIdx() + 1);
 		}
-		return pages.get(getCurrentPage());
+		return pages.get(currentIdx());
 	}
 
 	public Matrix prevPage() {
-		if (getCurrentPage() > 1) {
-			setCurrentPage(getCurrentPage() - 1);
+		if (currentIdx() > 1) {
+			setCurrentPage(currentIdx() - 1);
 		}
-			return pages.get(getCurrentPage());
+			return pages.get(currentIdx());
 	}
 
 	public int getCurrentPage() {
@@ -46,5 +46,9 @@ public class App {
 
 	public int getPageSize() {
 		return this.pages.size();
+	}
+	
+	public int currentIdx() {
+		return currentPage - 1;
 	}
 }
