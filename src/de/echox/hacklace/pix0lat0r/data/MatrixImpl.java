@@ -1,5 +1,7 @@
 package de.echox.hacklace.pix0lat0r.data;
 
+import java.util.Arrays;
+
 public class MatrixImpl implements Matrix {
 
 	private boolean[][] matrix;
@@ -8,8 +10,18 @@ public class MatrixImpl implements Matrix {
 		this.matrix = new boolean[width][height];
 	}
 	
-	public MatrixImpl(Matrix matrix) {
-		this.matrix = matrix.getData().clone();
+	private MatrixImpl(MatrixImpl matrix) {
+		this.matrix = copyArray(matrix.getData());
+	}
+	
+	public static boolean[][] copyArray(boolean[][] array) {
+	    if (array == null) return null;
+
+	    final boolean[][] result = new boolean[array.length][];
+	    for (int i = 0; i < array.length; i++) {
+	        result[i] = Arrays.copyOf(array[i], array[i].length);
+	    }
+	    return result;
 	}
 	
 	@Override
@@ -37,8 +49,7 @@ public class MatrixImpl implements Matrix {
 		return this.matrix;
 	}
 	
-	//TODO implement real cloning
-	public Matrix fullClone() {
+	public Matrix copy() {
 		return new MatrixImpl(this);
 	}
 

@@ -8,5 +8,5 @@ public interface Matrix {
 	void togglePixel(int x, int y);
 	boolean[][] getData();
 	//TODO fix clone interface
-	Matrix fullClone();
+	Matrix copy();
 }
