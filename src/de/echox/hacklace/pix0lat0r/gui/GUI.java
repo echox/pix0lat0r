@@ -109,7 +109,7 @@ public class GUI {
 	}
 	
 	private void drawPaging() {
-		this.pageLabel.setText(app.getCurrentPage() + "/" + app.getPageSize());
+		this.pageLabel.setText(" " + app.getCurrentPage() + " / " + app.getPageSize() + " ");
 		this.pageLabel.redraw();
 	}
 
