@@ -59,7 +59,7 @@ public class GUI {
 		right.setText(" > ");
 		
 		// drawer
-		Drawer drawer = new Drawer(shell, 0);
+		this.drawer = new Drawer(shell, 0);
 		
 		left.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
