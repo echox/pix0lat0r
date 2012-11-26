@@ -9,7 +9,7 @@ public class MatrixImpl implements Matrix {
 	}
 	
 	public MatrixImpl(Matrix matrix) {
-		this.matrix = matrix.getData();
+		this.matrix = matrix.getData().clone();
 	}
 	
 	@Override
