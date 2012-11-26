@@ -7,4 +7,6 @@ public interface Matrix {
 	boolean getPixel(int x, int y);
 	void togglePixel(int x, int y);
 	boolean[][] getData();
+	//TODO fix clone interface
+	Matrix fullClone();
 }

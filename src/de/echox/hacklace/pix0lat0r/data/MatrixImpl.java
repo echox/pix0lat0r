@@ -2,10 +2,14 @@ package de.echox.hacklace.pix0lat0r.data;
 
 public class MatrixImpl implements Matrix {
 
-	boolean[][] matrix;
+	private boolean[][] matrix;
 	
 	public MatrixImpl(int width, int height) {
 		this.matrix = new boolean[width][height];
+	}
+	
+	public MatrixImpl(Matrix matrix) {
+		this.matrix = matrix.getData();
 	}
 	
 	@Override
@@ -31,6 +35,11 @@ public class MatrixImpl implements Matrix {
 	@Override
 	public boolean[][] getData() {
 		return this.matrix;
+	}
+	
+	//TODO implement real cloning
+	public Matrix fullClone() {
+		return new MatrixImpl(this);
 	}
 
 }
