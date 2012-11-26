@@ -52,6 +52,9 @@ public class GUI {
 		Button left = new Button (shell, SWT.PUSH);
 		left.setText(" < ");
 		
+		Button delete = new Button (shell, SWT.PUSH);
+		delete.setText(" X ");
+		
 		pageLabel = new Label(shell, SWT.VERTICAL);
 		
 		Button right = new Button (shell, SWT.PUSH);
@@ -70,6 +73,13 @@ public class GUI {
 		left.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				GUI.this.drawer.setMatrixData(app.prevPage());
+				GUI.this.drawPaging();
+			}
+		});
+		
+		delete.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				GUI.this.drawer.setMatrixData(app.delete());
 				GUI.this.drawPaging();
 			}
 		});

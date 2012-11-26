@@ -60,4 +60,18 @@ public class App {
 		pages.add(pageIdx, matrix);
 		return matrix;
 	}
+
+	public Matrix delete() {
+		if(!(pageIdx == 0 && pages.size() == 1)) {
+			
+			pages.remove(pageIdx);
+			
+			if(pageIdx != 0) {
+				pageIdx--;
+			}
+			
+		}
+		
+		return pages.get(pageIdx);
+	}
 }
