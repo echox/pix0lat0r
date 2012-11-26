@@ -57,6 +57,12 @@ public class GUI {
 		Button right = new Button (shell, SWT.PUSH);
 		right.setText(" > ");
 		
+		Button clone = new Button (shell, SWT.PUSH);
+		clone.setText(" *> ");
+		
+		Button insert = new Button (shell, SWT.PUSH);
+		insert.setText(" +> ");
+		
 		// drawer
 		this.drawer = new Drawer(shell, 0);
 		drawer.setMatrixData(app.getCurrentPageData());
@@ -71,6 +77,20 @@ public class GUI {
 		right.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				GUI.this.drawer.setMatrixData(app.nextPage());
+				GUI.this.drawPaging();
+			}
+		});
+		
+		clone.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				GUI.this.drawer.setMatrixData(app.cloneNewPage());
+				GUI.this.drawPaging();
+			}
+		});
+		
+		insert.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				GUI.this.drawer.setMatrixData(app.insertNewPage());
 				GUI.this.drawPaging();
 			}
 		});

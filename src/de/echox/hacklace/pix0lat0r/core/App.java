@@ -46,4 +46,18 @@ public class App {
 	public Matrix getCurrentPageData() {
 		return this.pages.get(pageIdx);
 	}
+
+	public Matrix cloneNewPage() {
+		Matrix matrix = pages.get(pageIdx).copy();
+		pageIdx++;
+		pages.add(pageIdx, matrix);
+		return matrix;
+	}
+
+	public Matrix insertNewPage() {
+		Matrix matrix = new MatrixImpl(5, 7);
+		pageIdx++;
+		pages.add(pageIdx, matrix);
+		return matrix;
+	}
 }
