@@ -102,5 +102,6 @@ public class Drawer extends Canvas {
 	 
 	 public void setMatrixData(Matrix matrix) {
 		 this.matrix = matrix;
+		 this.redraw();
 	 }
 }
