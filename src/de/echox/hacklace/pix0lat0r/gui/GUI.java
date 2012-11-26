@@ -20,6 +20,8 @@ public class GUI {
 	private Display display;
 	private Shell shell;
 	private App app;
+	
+	private Drawer drawer;
 
 	public void initialize(App app) {
 		
@@ -48,26 +50,29 @@ public class GUI {
 		
 		Button left = new Button (shell, SWT.PUSH);
 		left.setText(" < ");
-		left.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				System.out.println("OK");
-			}
-		});
 		
 		Label label = new Label(shell, SWT.VERTICAL);
 		label.setText("1/1");
 		
 		Button right = new Button (shell, SWT.PUSH);
 		right.setText(" > ");
-		right.addSelectionListener(new SelectionAdapter() {
+		
+		// drawer
+		Drawer drawer = new Drawer(shell, 0);
+		
+		left.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				System.out.println("OK");
+				app.prevPage(GUI.this.drawer.getMatrixData());
+				GUI.this.drawer.setMatrixData(app.getCurrentPage());
 			}
 		});
 		
-		// drawer
-		
-		Drawer drawer = new Drawer(shell, 0);
+		right.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				app.nextPage(GUI.this.drawer.getMatrixData());
+				GUI.this.drawer.setMatrixData(app.getCurrentPage());
+			}
+		});
 		
 	}
 
