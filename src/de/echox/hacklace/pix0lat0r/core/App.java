@@ -17,23 +17,34 @@ public class App {
 	}
 
 	App() {
-		this.currentPage = 1;
+		this.setCurrentPage(1);
 		pages.add(new MatrixImpl(5,7));
 	}
 	
 	public Matrix nextPage() {
-		if(currentPage >= pages.size()) {
+		if(getCurrentPage() >= pages.size()) {
 			pages.add(new MatrixImpl(5,7));
-			currentPage++;
+			setCurrentPage(getCurrentPage() + 1);
 		}
-		return pages.get(currentPage);
+		return pages.get(getCurrentPage());
 	}
 
 	public Matrix prevPage() {
-		if (currentPage > 1) {
-			currentPage--;
+		if (getCurrentPage() > 1) {
+			setCurrentPage(getCurrentPage() - 1);
 		}
-			return pages.get(currentPage);
+			return pages.get(getCurrentPage());
 	}
 
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public int getPageSize() {
+		return this.pages.size();
+	}
 }

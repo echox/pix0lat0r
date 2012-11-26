@@ -22,6 +22,7 @@ public class GUI {
 	private App app;
 	
 	private Drawer drawer;
+	private Label pageLabel;
 
 	public void initialize(App app) {
 		
@@ -51,8 +52,8 @@ public class GUI {
 		Button left = new Button (shell, SWT.PUSH);
 		left.setText(" < ");
 		
-		Label label = new Label(shell, SWT.VERTICAL);
-		label.setText("1/1");
+		pageLabel = new Label(shell, SWT.VERTICAL);
+		pageLabel.setText("1/1");
 		
 		Button right = new Button (shell, SWT.PUSH);
 		right.setText(" > ");
@@ -63,15 +64,22 @@ public class GUI {
 		left.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				GUI.this.drawer.setMatrixData(app.prevPage());
+				GUI.this.drawPaging();
 			}
 		});
 		
 		right.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				GUI.this.drawer.setMatrixData(app.nextPage());
+				GUI.this.drawPaging();
 			}
 		});
 		
+	}
+	
+	private void drawPaging() {
+		this.pageLabel.setText(app.getCurrentPage() + "/" + app.getPageSize());
+		this.pageLabel.redraw();
 	}
 
 	private void initializeMenu() {
@@ -94,7 +102,6 @@ public class GUI {
 		
 		MenuItem settings = new MenuItem(bar,SWT.PUSH);
 		settings.setText("Settings");
-		
 	}
 	
 	
