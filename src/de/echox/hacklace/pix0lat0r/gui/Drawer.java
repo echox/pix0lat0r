@@ -96,11 +96,11 @@ public class Drawer extends Canvas {
 		 this.matrix.togglePixel(x, y);
 	 }
 	 
-	 public Matrix getData() {
+	 public Matrix getMatrixData() {
 		 return this.matrix;
 	 }
 	 
-	 public void setData(Matrix matrix) {
+	 public void setMatrixData(Matrix matrix) {
 		 this.matrix = matrix;
 	 }
 }
