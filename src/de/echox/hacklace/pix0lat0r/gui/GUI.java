@@ -3,8 +3,11 @@ package de.echox.hacklace.pix0lat0r.gui;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
@@ -31,11 +34,14 @@ public class GUI {
 		display = new Display ();
 		shell = new Shell (display);
 		
+		GridLayout gridLayout = new GridLayout();
+		gridLayout.numColumns = 1;
+		shell.setLayout(gridLayout);
+		
 		initializeMenu();
 		initializeAnimator();
 		
 		
-		shell.setLayout (new RowLayout ());
 		shell.pack();
 		shell.open ();
 		while (!shell.isDisposed()) {
@@ -47,23 +53,26 @@ public class GUI {
 
 	private void initializeAnimator() {
 
+    	Composite control = new Composite(shell, SWT.BORDER);
+    	control.setLayout(new RowLayout());
+
 		// controls
 		
-		Button left = new Button (shell, SWT.PUSH);
+		Button left = new Button (control, SWT.PUSH);
 		left.setText(" < ");
 		
-		Button delete = new Button (shell, SWT.PUSH);
+		Button delete = new Button (control, SWT.PUSH);
 		delete.setText(" X ");
 		
-		pageLabel = new Label(shell, SWT.VERTICAL);
+		pageLabel = new Label(control, SWT.VERTICAL);
 		
-		Button right = new Button (shell, SWT.PUSH);
+		Button right = new Button (control, SWT.PUSH);
 		right.setText(" > ");
 		
-		Button clone = new Button (shell, SWT.PUSH);
+		Button clone = new Button (control, SWT.PUSH);
 		clone.setText(" *> ");
 		
-		Button insert = new Button (shell, SWT.PUSH);
+		Button insert = new Button (control, SWT.PUSH);
 		insert.setText(" +> ");
 		
 		// drawer
