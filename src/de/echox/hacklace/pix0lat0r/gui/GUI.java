@@ -19,11 +19,11 @@ public class GUI {
 
 	private Display display;
 	private Shell shell;
-	private App controller;
+	private App app;
 
-	public void initialize(App controller) {
+	public void initialize(App app) {
 		
-		this.controller = controller;
+		this.app = app;
 		
 		display = new Display ();
 		shell = new Shell (display);
@@ -84,7 +84,7 @@ public class GUI {
 		
 		item.addListener (SWT.Selection, new Listener () {
 			public void handleEvent (Event e) {
-				controller.quit();
+				app.quit();
 			}
 		});
 		item.setText ("Quit");
