@@ -53,13 +53,13 @@ public class GUI {
 		left.setText(" < ");
 		
 		pageLabel = new Label(shell, SWT.VERTICAL);
-		pageLabel.setText("1/1");
 		
 		Button right = new Button (shell, SWT.PUSH);
 		right.setText(" > ");
 		
 		// drawer
 		this.drawer = new Drawer(shell, 0);
+		drawer.setMatrixData(app.getCurrentPageData());
 		
 		left.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -75,6 +75,7 @@ public class GUI {
 			}
 		});
 		
+		drawPaging();
 	}
 	
 	private void drawPaging() {

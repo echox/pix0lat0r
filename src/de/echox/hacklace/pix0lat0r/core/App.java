@@ -42,4 +42,8 @@ public class App {
 	public int getPageSize() {
 		return this.pages.size();
 	}
+	
+	public Matrix getCurrentPageData() {
+		return this.pages.get(pageIdx);
+	}
 }
