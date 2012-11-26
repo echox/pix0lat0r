@@ -33,7 +33,7 @@ public class GUI {
 		
 		
 		shell.setLayout (new RowLayout ());
-		shell.setSize (200, 200);
+		shell.pack();
 		shell.open ();
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch ()) display.sleep ();
