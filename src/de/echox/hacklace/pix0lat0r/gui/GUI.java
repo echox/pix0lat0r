@@ -62,15 +62,13 @@ public class GUI {
 		
 		left.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				app.prevPage(GUI.this.drawer.getMatrixData());
-				GUI.this.drawer.setMatrixData(app.getCurrentPage());
+				GUI.this.drawer.setMatrixData(app.prevPage());
 			}
 		});
 		
 		right.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				app.nextPage(GUI.this.drawer.getMatrixData());
-				GUI.this.drawer.setMatrixData(app.getCurrentPage());
+				GUI.this.drawer.setMatrixData(app.nextPage());
 			}
 		});
 		

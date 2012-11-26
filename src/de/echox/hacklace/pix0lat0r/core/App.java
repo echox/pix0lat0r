@@ -4,29 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.echox.hacklace.pix0lat0r.data.Matrix;
+import de.echox.hacklace.pix0lat0r.data.MatrixImpl;
 
 public class App {
 	
 	List<Matrix> pages = new ArrayList<Matrix>();
 	
-	int currentPage = 1;
+	private int currentPage;
 
 	public void quit() {
 		System.exit(0);
 	}
 
-	public void nextPage(Matrix matrix) {
-		// TODO Auto-generated method stub
-
+	App() {
+		this.currentPage = 1;
+		pages.add(new MatrixImpl(5,7));
+	}
+	
+	public Matrix nextPage() {
+		if(currentPage >= pages.size()) {
+			pages.add(new MatrixImpl(5,7));
+			currentPage++;
+		}
+		return pages.get(currentPage);
 	}
 
-	public void prevPage(Matrix matrixData) {
-		// TODO Auto-generated method stub
-		
+	public Matrix prevPage() {
+		if (currentPage > 1) {
+			currentPage--;
+		}
+			return pages.get(currentPage);
 	}
 
-	public Matrix getCurrentPage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
