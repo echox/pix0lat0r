@@ -10,45 +10,36 @@ public class App {
 	
 	List<Matrix> pages = new ArrayList<Matrix>();
 	
-	private int currentPage;
+	private int pageIdx = 0;
 
 	public void quit() {
 		System.exit(0);
 	}
 
 	App() {
-		this.setCurrentPage(1);
 		pages.add(new MatrixImpl(5,7));
 	}
 	
 	public Matrix nextPage() {
-		if(currentIdx() >= pages.size()) {
+		pageIdx++;
+		if(pageIdx == pages.size()) {
 			pages.add(new MatrixImpl(5,7));
-			setCurrentPage(currentIdx() + 1);
 		}
-		return pages.get(currentIdx());
+		return pages.get(pageIdx);
 	}
 
 	public Matrix prevPage() {
-		if (currentIdx() > 1) {
-			setCurrentPage(currentIdx() - 1);
+		if (pageIdx > 0) {
+			pageIdx--;
 		}
-			return pages.get(currentIdx());
+		return pages.get(pageIdx);
 	}
 
 	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
+		return pageIdx + 1;
 	}
 
 	public int getPageSize() {
 		return this.pages.size();
-	}
-	
-	public int currentIdx() {
-		return currentPage - 1;
 	}
 }
