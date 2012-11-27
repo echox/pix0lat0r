@@ -9,6 +9,8 @@ It should also be possible to write the animation directly via the serial port o
 
 Visit http://www.hacklace.org for more information of the hardware.
 
+License: ISC (equivalent to 2-clause BSD license)
+
 Features
 --------
 * Save/Load animations
