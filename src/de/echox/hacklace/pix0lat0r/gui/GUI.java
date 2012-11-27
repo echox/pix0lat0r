@@ -124,6 +124,8 @@ public class GUI {
 
 	private void initializeMenu() {
 		
+		//TODO structure menu
+		
 		Menu bar = new Menu (shell, SWT.BAR);
 		shell.setMenuBar (bar);
 		
@@ -131,8 +133,15 @@ public class GUI {
 		fileItem.setText ("File");
 		Menu submenu = new Menu (shell, SWT.DROP_DOWN);
 		fileItem.setMenu (submenu);
-		MenuItem item = new MenuItem (submenu, SWT.PUSH);
 		
+		MenuItem open = new MenuItem (submenu, SWT.PUSH);
+		open.setText("Open...");
+		MenuItem save = new MenuItem (submenu, SWT.PUSH);
+		save.setText("Save");
+		MenuItem saveAs = new MenuItem (submenu, SWT.PUSH);
+		saveAs.setText("Save as..");
+	    final MenuItem separator = new MenuItem(submenu, SWT.SEPARATOR);
+		MenuItem item = new MenuItem (submenu, SWT.PUSH);
 		item.addListener (SWT.Selection, new Listener () {
 			public void handleEvent (Event e) {
 				app.quit();
@@ -142,6 +151,27 @@ public class GUI {
 		
 		MenuItem settings = new MenuItem(bar,SWT.PUSH);
 		settings.setText("Settings");
+		
+		MenuItem export = new MenuItem(bar,SWT.CASCADE);
+		export.setText("Export");
+		Menu subExport = new Menu(shell, SWT.DROP_DOWN);
+		export.setMenu(subExport);
+		MenuItem script = new MenuItem(subExport,SWT.CASCADE);
+		script.setText("Script");
+		final Menu subScript = new Menu(shell, SWT.DROP_DOWN);
+		script.setMenu(subScript);
+		MenuItem sh = new MenuItem(subScript, SWT.PUSH);
+		sh.setText("sh");
+		MenuItem perl = new MenuItem(subScript, SWT.PUSH);
+		perl.setText("Perl");
+		MenuItem python = new MenuItem(subScript, SWT.PUSH);
+		python.setText("Python");
+		MenuItem toDevice = new MenuItem(subExport,SWT.PUSH);
+		toDevice.setText("to hacklace (via serial)");
+		
+		MenuItem help = new MenuItem(bar, SWT.PUSH);
+		help.setText("?");
+		
 	}
 	
 	private void initializeModusBit() {
