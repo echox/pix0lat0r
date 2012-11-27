@@ -3,7 +3,6 @@ package de.echox.hacklace.pix0lat0r.gui;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
@@ -40,6 +39,7 @@ public class GUI {
 		
 		initializeMenu();
 		initializeAnimator();
+		initializeModusBit();
 		
 		
 		shell.pack();
@@ -144,5 +144,39 @@ public class GUI {
 		settings.setText("Settings");
 	}
 	
+	private void initializeModusBit() {
+
+		Composite composite = new Composite(shell, SWT.NULL);
+		composite.setLayout(new RowLayout());
+
+		Label speed = new Label(composite, SWT.VERTICAL);
+		speed.setText("Scroll speed: ");
+		Button speedSlow = new Button(composite, SWT.RADIO);
+		speedSlow.setText("slow");
+		Button speedMedium = new Button(composite, SWT.RADIO);
+		speedMedium.setText("medium");
+		Button speedFast = new Button(composite, SWT.RADIO);
+		speedFast.setText("fast");
+
+		composite = new Composite(shell, SWT.NULL);
+		composite.setLayout(new RowLayout());
+
+		Label pause = new Label(composite, SWT.VERTICAL);
+		pause.setText("Animation pause: ");
+		Button pauseShort = new Button(composite, SWT.RADIO);
+		pauseShort.setText("short");
+		Button pauseMedium = new Button(composite, SWT.RADIO);
+		pauseMedium.setText("medium");
+		Button pauseLong = new Button(composite, SWT.RADIO);
+		pauseLong.setText("long");
+
+		composite = new Composite(shell, SWT.NULL);
+		composite.setLayout(new RowLayout());
+		Label lblScrollback = new Label(composite, SWT.VERTICAL);
+		lblScrollback.setText("Animation ");
+		Button scrollback = new Button(composite, SWT.CHECK);
+		scrollback.setText("scrollback");
+	}
+
 	
 }
