@@ -17,3 +17,10 @@ Features
 * Customizable drawer component ;-)
 * Animation preview
 * GUI based on SWT
+
+Related Projects
+----------------
+Hacklace project: http://www.hacklace.org
+Hacklace firmware: https://github.com/fabster/Hacklace
+
+Other Animator project: https://github.com/Hacklace/Animator
