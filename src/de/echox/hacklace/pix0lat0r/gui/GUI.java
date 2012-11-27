@@ -58,11 +58,11 @@ public class GUI {
 
 		// controls
 		
-		Button left = new Button (control, SWT.PUSH);
-		left.setText(" < ");
-		
 		Button delete = new Button (control, SWT.PUSH);
 		delete.setText(" X ");
+    	
+		Button left = new Button (control, SWT.PUSH);
+		left.setText(" < ");
 		
 		pageLabel = new Label(control, SWT.VERTICAL);
 		
