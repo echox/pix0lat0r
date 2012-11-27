@@ -20,7 +20,7 @@ Features
 
 Related Projects
 ----------------
-Hacklace project: http://www.hacklace.org
-Hacklace firmware: https://github.com/fabster/Hacklace
+* Hacklace project: http://www.hacklace.org
+* Hacklace firmware: https://github.com/fabster/Hacklace
 
-Other Animator project: https://github.com/Hacklace/Animator
+* Other Animator project: https://github.com/Hacklace/Animator
