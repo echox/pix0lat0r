@@ -151,7 +151,7 @@ public class GUI {
 		save.setText("Save");
 		MenuItem saveAs = new MenuItem (submenu, SWT.PUSH);
 		saveAs.setText("Save as..");
-	    final MenuItem separator = new MenuItem(submenu, SWT.SEPARATOR);
+		new MenuItem(submenu, SWT.SEPARATOR);
 		MenuItem item = new MenuItem (submenu, SWT.PUSH);
 		item.addListener (SWT.Selection, new Listener () {
 			public void handleEvent (Event e) {
