@@ -77,5 +77,9 @@ public class MatrixImpl implements Matrix {
 	public int getHeight() {
 		return height;
 	}
+	
+	public int getSize() {
+		return this.width * this.height;
+	}
 
 }

@@ -10,6 +10,7 @@ public interface Matrix {
 	boolean[] getColumn(int column);
 	int getWidth();
 	int getHeight();
+	int getSize();
 	//TODO fix clone interface
 	Matrix copy();
 }
