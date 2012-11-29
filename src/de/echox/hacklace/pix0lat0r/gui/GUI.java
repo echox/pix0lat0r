@@ -1,9 +1,9 @@
 package de.echox.hacklace.pix0lat0r.gui;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
@@ -34,9 +34,12 @@ public class GUI {
 		display = new Display ();
 		shell = new Shell (display);
 		
-		GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 1;
+		GridLayout gridLayout = new GridLayout(1, true);
 		shell.setLayout(gridLayout);
+		GridData layoutData = new GridData(GridData.FILL_BOTH);
+		layoutData.verticalAlignment = SWT.CENTER;
+		layoutData.horizontalAlignment = SWT.CENTER;
+		shell.setLayoutData(layoutData);
 		
 		initializeMenu();
 		initializeAnimator();
@@ -53,9 +56,15 @@ public class GUI {
 	}
 
 	private void initializeAnimator() {
+		
+		Composite container = new Composite(shell, SWT.BORDER);
+		container.setLayout(new GridLayout());
+		container.setLayoutData(GUI.getCenterLayout());
 
-    	Composite control = new Composite(shell, SWT.BORDER);
+    	Composite control = new Composite(container, SWT.BORDER);
     	control.setLayout(new RowLayout());
+		control.setLayoutData(GUI.getCenterLayout());
+		
 
 		// controls
 		
@@ -77,8 +86,9 @@ public class GUI {
 		insert.setText(" +> ");
 		
 		// drawer
-		this.drawer = new Drawer(shell, 0);
+		this.drawer = new Drawer(container, 0);
 		drawer.setMatrixData(app.getCurrentPageData());
+		drawer.setLayoutData(GUI.getCenterLayout());
 		
 		left.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -179,6 +189,7 @@ public class GUI {
 
 		Composite container = new Composite(shell, SWT.BORDER);
 		container.setLayout(new GridLayout());
+		container.setLayoutData(GUI.getCenterLayout());
 		
 		Composite composite = new Composite(container, SWT.NULL);
 		composite.setLayout(new RowLayout());
@@ -210,6 +221,14 @@ public class GUI {
 		lblScrollback.setText("Animation ");
 		Button scrollback = new Button(composite, SWT.CHECK);
 		scrollback.setText("scrollback");
+	}
+	
+	public static GridData getCenterLayout() {
+		GridData layoutData = new GridData(GridData.FILL_BOTH);
+		layoutData.verticalAlignment = SWT.CENTER;
+		layoutData.horizontalAlignment = SWT.CENTER;
+		layoutData.grabExcessHorizontalSpace = true;
+		return layoutData;
 	}
 
 	
