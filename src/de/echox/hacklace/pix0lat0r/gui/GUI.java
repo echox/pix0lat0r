@@ -1,6 +1,7 @@
 package de.echox.hacklace.pix0lat0r.gui;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StackLayout;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridLayout;
@@ -176,7 +177,10 @@ public class GUI {
 	
 	private void initializeModusBit() {
 
-		Composite composite = new Composite(shell, SWT.NULL);
+		Composite container = new Composite(shell, SWT.BORDER);
+		container.setLayout(new GridLayout());
+		
+		Composite composite = new Composite(container, SWT.NULL);
 		composite.setLayout(new RowLayout());
 
 		Label speed = new Label(composite, SWT.VERTICAL);
@@ -188,7 +192,7 @@ public class GUI {
 		Button speedFast = new Button(composite, SWT.RADIO);
 		speedFast.setText("fast");
 
-		composite = new Composite(shell, SWT.NULL);
+		composite = new Composite(container, SWT.NULL);
 		composite.setLayout(new RowLayout());
 
 		Label pause = new Label(composite, SWT.VERTICAL);
@@ -200,7 +204,7 @@ public class GUI {
 		Button pauseLong = new Button(composite, SWT.RADIO);
 		pauseLong.setText("long");
 
-		composite = new Composite(shell, SWT.NULL);
+		composite = new Composite(container, SWT.NULL);
 		composite.setLayout(new RowLayout());
 		Label lblScrollback = new Label(composite, SWT.VERTICAL);
 		lblScrollback.setText("Animation ");
