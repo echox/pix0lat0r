@@ -53,4 +53,16 @@ public class MatrixImpl implements Matrix {
 		return new MatrixImpl(this);
 	}
 
+	@Override
+	public boolean[] getColumn(int column) {
+		
+		boolean[] row = new boolean[matrix[0].length];
+		
+		for(int y=0; y<row.length; y++) {
+			row[y] = matrix[column][y];
+		}
+		
+		return row;
+	}
+
 }
