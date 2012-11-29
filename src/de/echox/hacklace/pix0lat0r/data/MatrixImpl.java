@@ -6,7 +6,12 @@ public class MatrixImpl implements Matrix {
 
 	private boolean[][] matrix;
 	
+	private int width;
+	private int height;
+	
 	public MatrixImpl(int width, int height) {
+		this.width = width;
+		this.height = height;
 		this.matrix = new boolean[width][height];
 	}
 	
@@ -63,6 +68,14 @@ public class MatrixImpl implements Matrix {
 		}
 		
 		return row;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 
 }

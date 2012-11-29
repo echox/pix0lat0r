@@ -8,6 +8,8 @@ public interface Matrix {
 	void togglePixel(int x, int y);
 	boolean[][] getData();
 	boolean[] getColumn(int column);
+	int getWidth();
+	int getHeight();
 	//TODO fix clone interface
 	Matrix copy();
 }
