@@ -31,6 +31,13 @@ public class MatrixImplTest {
 				assertFalse(matrix.getPixel(x, y));
 			}
 		}
+		
+		for (int x = 0; x < WIDTH; x++) {
+			boolean[] column = matrix.getColumn(x);
+			for(int y = 0; y < HEIGHT; y++) {
+				assertFalse(column[y]);
+			}
+		}
 	}
 	
 	@Test
@@ -45,6 +52,13 @@ public class MatrixImplTest {
 		for(int x = 0; x < WIDTH; x++) {
 			for (int y = 0; y < HEIGHT; y++) {
 				assertTrue(matrix.getPixel(x, y));
+			}
+		}
+		
+		for (int x = 0; x < WIDTH; x++) {
+			boolean[] column = matrix.getColumn(x);
+			for(int y = 0; y < HEIGHT; y++) {
+				assertTrue(column[y]);
 			}
 		}
 	}
@@ -82,6 +96,27 @@ public class MatrixImplTest {
 		
 		for(int y = 0; y < HEIGHT; y++) {
 			assertTrue(matrix.getPixel(WIDTH -1, y));
+		}
+		
+		for (int x = 1; x < WIDTH-1; x++) {
+			boolean[] column = matrix.getColumn(x);
+			
+			assertTrue(column[0]);
+			assertTrue(column[HEIGHT-1]);
+			
+			for(int y = 1; y < HEIGHT-1; y++) {
+				assertFalse(column[y]);
+			}
+		}
+
+		boolean[] column = matrix.getColumn(0);
+		for(int y = 0; y < HEIGHT; y++) {
+			assertTrue(column[y]);
+		}
+		
+		column = matrix.getColumn(WIDTH-1);
+		for(int y = 0; y < HEIGHT; y++) {
+			assertTrue(column[y]);
 		}
 		
 	}
