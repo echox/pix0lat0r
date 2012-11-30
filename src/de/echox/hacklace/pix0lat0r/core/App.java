@@ -62,14 +62,20 @@ public class App {
 	}
 
 	public Matrix delete() {
-		if(!(pageIdx == 0 && pages.size() == 1)) {
-			
-			pages.remove(pageIdx);
-			
-			if(pageIdx != 0) {
-				pageIdx--;
+		
+		if(pageIdx == 0 && pages.size() == 1) {
+			pages.remove(0);
+			pages.add(0,new MatrixImpl(5, 7));
+		} else {
+			if(pages.size() != 1) {
+				
+				pages.remove(pageIdx);
+				
+				if(pageIdx != 0) {
+					pageIdx--;
+				}
+				
 			}
-			
 		}
 		
 		return pages.get(pageIdx);
