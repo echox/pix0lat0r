@@ -1,23 +1,31 @@
 package de.echox.hacklace.pix0lat0r.data;
 
 import java.util.Iterator;
+import java.util.List;
 
 // TODO class works only for byte size displays
 public class MatrixSerializer {
 	
-	public static byte[] serialize(Iterable<Matrix> matrixes) {
+	public static byte[] serialize(List<Matrix> matrixes) {
 
-		//TODO finish that :-)
+		int width = matrixes.get(0).getWidth();
+		int size = (matrixes.size() * width);
+		byte[] result = new byte[size];
+
+		int position = 0;
 		for (Iterator<Matrix> it = matrixes.iterator(); it.hasNext();) {
 			Matrix matrix = it.next();
+			byte[] serialized = serialize(matrix);
+			System.arraycopy(serialized, 0, result, position, serialized.length);
+			position += serialized.length;
 		}
-		return null;
+		return result;
 	}
 	
 	public static byte[] serialize(Matrix matrix) {
 		
-		byte[] result = new byte[matrix.getSize()];
 		int width = matrix.getWidth();
+		byte[] result = new byte[matrix.getWidth()];
 		
 		for(int x=0; x < width; x++) {
 			result[x] = serialize(matrix.getColumn(x));
