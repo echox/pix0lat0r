@@ -82,11 +82,13 @@ public class App {
 		return pages.get(pageIdx);
 	}
 	
-	public void serialize() {
+	//TODO state should be kept in app, not in GUI, change this
+	public void serialize(short modus) {
 		byte[] result = MatrixSerializer.serialize(this.pages);
 		for (int i = 0; i < result.length; i++) {
 			System.out.print("0x" + Integer.toHexString(result[i]).toUpperCase() + " ");
 		}
 		System.out.println();
+		System.out.println("Modus: " + Integer.toHexString(modus).toUpperCase());
 	}
 }
