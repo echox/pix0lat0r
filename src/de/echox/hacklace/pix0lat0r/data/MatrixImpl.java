@@ -17,6 +17,8 @@ public class MatrixImpl implements Matrix {
 	
 	private MatrixImpl(MatrixImpl matrix) {
 		this.matrix = copyArray(matrix.getData());
+		this.width = matrix.getWidth();
+		this.height = matrix.getHeight();
 	}
 	
 	public static boolean[][] copyArray(boolean[][] array) {
