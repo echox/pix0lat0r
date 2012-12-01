@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 
 import de.echox.hacklace.pix0lat0r.core.App;
+import de.echox.hacklace.pix0lat0r.data.ModusOptions;
 
 public class GUI {
 
@@ -26,6 +27,8 @@ public class GUI {
 	
 	private Drawer drawer;
 	private Label pageLabel;
+	
+	private ModusByteGUIContainer modusByte;
 
 	public void initialize(App app) {
 		
@@ -43,7 +46,7 @@ public class GUI {
 		
 		initializeMenu();
 		initializeAnimator();
-		initializeModusBit();
+		initializeModusByte();
 		
 		
 		shell.pack();
@@ -182,7 +185,7 @@ public class GUI {
 		toDevice.addListener(SWT.Selection, new Listener() {
 			@Override
 			public void handleEvent(Event arg0) {
-				app.serialize();
+				app.serialize(getModus());
 			}
 		});
 		
@@ -191,7 +194,7 @@ public class GUI {
 		
 	}
 	
-	private void initializeModusBit() {
+	private void initializeModusByte() {
 
 		Composite container = new Composite(shell, SWT.BORDER);
 		container.setLayout(new GridLayout());
@@ -227,6 +230,8 @@ public class GUI {
 		lblScrollback.setText("Animation ");
 		Button scrollback = new Button(composite, SWT.CHECK);
 		scrollback.setText("scrollback");
+		
+		this.modusByte = new ModusByteGUIContainer(speedSlow, speedMedium, speedFast, pauseShort, pauseMedium, pauseLong, scrollback);
 	}
 	
 	public static GridData getCenterLayout() {
@@ -236,6 +241,22 @@ public class GUI {
 		layoutData.grabExcessHorizontalSpace = true;
 		return layoutData;
 	}
+	
+	public short getModus() {
+		
+		short modus = 0;
+		
+		modus += this.modusByte.getPauseValue();
+		modus += this.modusByte.getSpeedValue();
+		modus += this.modusByte.getScrollbackValue();
+		
+		//add the moment always animations ;-)
+		modus += ModusOptions.TYPE_ANIMATION;
+		
+		return modus;
+	}
+	
+	
 
 	
 }
