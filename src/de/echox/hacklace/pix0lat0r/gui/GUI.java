@@ -179,6 +179,12 @@ public class GUI {
 		python.setText("Python");
 		MenuItem toDevice = new MenuItem(subExport,SWT.PUSH);
 		toDevice.setText("to hacklace (via serial)");
+		toDevice.addListener(SWT.Selection, new Listener() {
+			@Override
+			public void handleEvent(Event arg0) {
+				app.serialize();
+			}
+		});
 		
 		MenuItem help = new MenuItem(bar, SWT.PUSH);
 		help.setText("?");

@@ -5,6 +5,7 @@ import java.util.List;
 
 import de.echox.hacklace.pix0lat0r.data.Matrix;
 import de.echox.hacklace.pix0lat0r.data.MatrixImpl;
+import de.echox.hacklace.pix0lat0r.data.MatrixSerializer;
 
 public class App {
 	
@@ -79,5 +80,13 @@ public class App {
 		}
 		
 		return pages.get(pageIdx);
+	}
+	
+	public void serialize() {
+		byte[] result = MatrixSerializer.serialize(this.pages);
+		for (int i = 0; i < result.length; i++) {
+			System.out.print("0x" + Integer.toHexString(result[i]).toUpperCase() + " ");
+		}
+		System.out.println();
 	}
 }
