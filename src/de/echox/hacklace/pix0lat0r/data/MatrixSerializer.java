@@ -40,17 +40,17 @@ public class MatrixSerializer {
 		
 		if(row[0]) {
 			result += 0x01;
-		} else if (row[1]) {
+		} if (row[1]) {
 			result += 0x02;
-		} else if (row[2]) {
+		} if (row[2]) {
 			result += 0x04;
-		} else if (row[3]) {
+		} if (row[3]) {
 			result += 0x08;
-		} else if (row[4]) {
+		} if (row[4]) {
 			result += 0x10;
-		} else if (row[5]) {
+		} if (row[5]) {
 			result += 0x20;
-		} else if (row[6]) {
+		} if (row[6]) {
 			result += 0x40;
 		}
 		
